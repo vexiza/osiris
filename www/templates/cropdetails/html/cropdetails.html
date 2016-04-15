@@ -1,0 +1,131 @@
+<!--View Information-->
+<!--View name : Cropdetails-->
+<!--State name : app.cropdetails-->
+<!--URL : #app/cropdetails-->
+
+<ion-view title="Detalles de siembra" id="cropdetails-view">
+    <!--cropdetails toolbar section-->
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-cropdetails" ng-if="crop.cropTypeImg" ng-style="{'background-image': 'url(img/cultivos/{{crop.cropTypeImg}})'}">
+        <div class="toolbar-title">
+            <h1>{{ crop.land }}
+                <img class="png-icon circle" ng-src="./img/tipo_riego/{{crop.irrigationSystemImg}}">
+            </h1>
+        </div>
+
+        <div class="row header-details">
+            <div class="col-50 izq">
+                <p>
+                    <md-icon md-svg-icon="tap" class="svg-icon"></md-icon>
+                    {{ crop.irrigationSuggest }}<abbr title="litros">litros</abbr>
+                </p>
+                <p id="bot_riego">
+                    Recomendación de riego<br>para hoy
+                </p>
+            </div>
+            <div class="col-50 dch">
+                <p>
+                    <md-icon md-svg-icon="rain" class="svg-icon"></md-icon>
+                    {{ crop.forecast48h }}<abbr title="litros">litros</abbr>
+                </p>
+                <p id="bot_riego">
+                    Pronóstico de lluvia<br>próximas 48h
+                </p>
+            </div>
+        </div>
+
+    </md-toolbar><!--end cropdetails toolbar section-->
+
+    <!--cropdetails section-->
+    <ion-content id="cropdetails-content">
+        <!--restaurant content section-->
+        <div id="cropdetails-content">
+
+            <!--product slide section-->
+            <ion-scroll direction="x" class="product-slide-list" ng-if="crop.forecast">
+                <div class="feed-list">
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[0].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[0].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[0].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[0].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[1].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[1].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[1].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[1].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[2].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[2].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[2].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[2].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[3].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[3].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[3].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[3].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[4].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[4].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[4].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[4].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[5].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[5].weekDay}}</span>
+                            <span class="value" flex style="color:#0091EA" ng-if="crop.forecast[5].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[5].value}}litros</span>
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" ng-style="{'background-image': 'url(img/aemet/' + crop.forecast[6].number + '_g.png)'}"></div>
+                        <div class="content" layout="column">
+                            <span class="week-day" flex>{{crop.forecast[6].weekDay}}</span>
+                            <span class="value" flex  style="color:#0091EA" ng-if="crop.forecast[6].value!==undefined"><i class="fa fa-tint"></i> {{crop.forecast[6].value}}litros</span>
+                        </div>
+                    </div>
+                </div>
+            </ion-scroll>
+
+            <md-divider></md-divider>
+            <div class="row">
+                <div class="col">
+                    <div class="col menu-header">
+                        <h1>
+                            <i class="fa fa-inbox"></i> Detalles
+                        </h1>
+                    </div>
+                    <div id="back"class="col menu-content-detail-back">
+                        Cultivo: {{ crop.cropType }}</br>
+                        Riego: {{ crop.irrigationSystem }}</br>
+                        Siembra: {{ crop.date | date:'dd/MM/yyyy' }}
+                    </div>
+                </div>
+                <div class="col harvesting-section">
+                    <md-button class="md-raised md-primary harvesting" ng-click="harvesting($event)" aria-label="Cosechar">
+                        <md-icon md-svg-icon="harvest"></md-icon>
+                        Cosechar
+                    </md-button>
+                </div>
+            </div>
+            <md-divider></md-divider>
+
+        </div> <!--end cropdetails content section-->
+
+    </ion-content><!--end cube feed section-->
+
+    <!--loading progress-->
+    <div id="cropdetails-loading-progress" class="loading-progress fade-in">
+        <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
+        <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
+    </div><!--end loading progress-->
+
+</ion-view>

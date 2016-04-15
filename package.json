@@ -1,0 +1,59 @@
+{
+  "name": "osiris",
+  "version": "1.0.0",
+  "description": "OSIRIS mobile app",
+  "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^2.0.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.5.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.0",
+    "gulp-util": "^3.0.6",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "ionic-plugin-keyboard",
+    "cordova-plugin-googleplayservices",
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-transport-security",
+    "cordova-plugin-inappbrowser",
+    {
+      "locator": "https://github.com/litehelpers/Cordova-sqlite-storage.git",
+      "id": "cordova-sqlite-storage"
+    },
+    {
+      "locator": "https://github.com/cordova-sms/cordova-sms-plugin.git",
+      "id": "com.cordova.plugins.sms"
+    },
+    {
+      "locator": "https://github.com/devgeeks/Canvas2ImagePlugin.git",
+      "id": "org.devgeeks.Canvas2ImagePlugin"
+    },
+    {
+      "locator": "https://github.com/wymsee/cordova-imagePicker.git",
+      "id": "com.synconset.imagepicker"
+    },
+    {
+      "locator": "https://github.com/katzer/cordova-plugin-local-notifications",
+      "id": "de.appplant.cordova.plugin.local-notification"
+    },
+    "ionic-plugin-keyboard@1.0.8",
+    "cordova-plugin-googleplayservices@19.0.3",
+    "cordova-plugin-device@1.1.1",
+    "cordova-plugin-console@1.0.2",
+    "cordova-plugin-whitelist@1.2.1",
+    "cordova-plugin-splashscreen"
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android"
+  ]
+}

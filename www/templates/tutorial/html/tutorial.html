@@ -1,0 +1,25 @@
+<!--View Information-->
+<!--View name : Tutorial-->
+<!--State name : app.tutorial-->
+<!--URL : #app/tutorial-->
+
+<ion-view title="OSIRIS app">
+    <!--tutorial section-->
+    <div id="tutorial-content">
+        <ion-slide-box active-slide="0">
+            <!--slider section-->
+            <ion-slide class="slide-01"></ion-slide> <!-- Bienvenido a la app... -->
+            <ion-slide class="slide-02"></ion-slide> <!-- Registra tus parcelas -->
+            <ion-slide class="slide-03"></ion-slide> <!-- Añade tus cultivos -->
+            <ion-slide class="slide-04"></ion-slide> <!-- Si te equivocas, puedes editarlo -->
+            <ion-slide class="slide-05"></ion-slide> <!-- Cosecha tus cultivos -->
+            <ion-slide class="slide-06"></ion-slide> <!-- Consulta qué tienes que regar -->
+            <!--end slider section-->
+        </ion-slide-box><!--end tutorial section-->
+
+        <div class="tutorial-footer-content">
+            <a ng-click="tutorialShowed()" class="md-raised md-button md-default-theme material-background">Skip tutorial</a>
+        </div>
+    </div>
+
+</ion-view>

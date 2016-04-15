@@ -1,0 +1,66 @@
+<!--View Information-->
+<!--View name : Addland-->
+<!--State name : app.addland-->
+<!--URL : #app/addland-->
+
+<ion-view title="Añadir cultivo" >
+    <!--addland section-->
+    <!-- <ion-nav-buttons side="right">
+        <a class="button icon-right ion-ios-checkmark-empty button-clear" ng-click="addCrop($event)">Guardar</a>
+    </ion-nav-buttons> -->
+
+    <ion-content id="addland-content">
+
+        <!--name section-->
+        <div class="row row-detail">
+            <div class="col-33 label-detail">
+                Nombre
+            </div>
+            <div class="col-66 value-detail">
+                <md-input-container md-no-float="" class="md-list-item-full-width">
+                    <input ng-model="inputData.name" placeholder=" Introduzca nombre">
+                </md-input-container>
+            </div>
+        </div>
+        <div class="row row-detail">
+            <div class="col-33 label-detail">
+                Tipo cultivo
+            </div>
+            <div class="col-66 value-detail">
+                <md-select class="md-list-item-full-width" ng-model="newCrop.idCropType" aria-label="md-option">
+                    <md-option ng-value="ct.value" ng-repeat="ct in cropTypes">{{ct.label}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div class="row row-detail">
+            <div class="col-33 label-detail">
+                Sistema riego
+            </div>
+            <div class="col-66 value-detail">
+                <md-select class="md-list-item-full-width" ng-model="newCrop.idIrrigationSystem" aria-label="md-option">
+                    <md-option ng-value="irs.value" ng-repeat="irs in irrigationSystems">{{irs.label}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div class="row row-detail">
+            <div class="col-33 label-detail">
+                Fecha siembra
+            </div>
+            <div class="col-66 value-detail date" ng-click="showDatePicker()">
+                {{newCrop.date | date:'dd/MM/yyyy'}} <i class="ion-edit button-icon"></i>
+            </div>
+        </div>
+        <!--end name section-->
+
+        <div class="row row-detail">
+            <!-- Map -->
+            <leaflet id="map" class="map" height="300px" width="100%" defaults="map.defaults" markers="map.markers" center="map.center" layers="map.layers" ng-if="map"></leaflet>
+        </div>
+
+        <div class="row">
+            <md-button ng-click="addCrop($event)" class="md-raised md-primary">Añadir cultivo</md-button>
+        </div>
+        <!--end button section-->
+
+    </ion-content><!--end addland section-->
+</ion-view>

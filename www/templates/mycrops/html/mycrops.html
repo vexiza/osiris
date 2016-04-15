@@ -1,0 +1,62 @@
+<!--View Information-->
+<!--View name : Mycrops-->
+<!--State name : app.mycrops-->
+<!--URL : #app/mycrops-->
+
+<ion-view title="Mis cultivos">
+    <!--mycrops section-->
+    <ion-nav-buttons side="right">
+        <a class="button icon-right ion-ios-information-outline button-clear" ng-click="openModalAbout()"></a>
+    </ion-nav-buttons>
+
+    <ion-content id="mycrops-content">
+        <!--list section-->
+        <div class="location-list">
+            <img src="img/primer_cultivo.svg" ng-if="allCrops.length == 0">
+            <!--location item section-->
+            <div class="location-item" ng-repeat="crop in allCrops" ui-sref="app.cropdetails({ id: crop.idCrop })">
+                <div class="crop-img" ng-style="{'background-image': 'url(img/cultivos/{{crop.cropTypeImg}})'}">
+                    <div class="toolbar-title">
+                        <h1>{{ crop.land }}</h1>
+                    </div>
+                </div>
+                <div class="location-content row">
+
+                    <div class="col-50 izq">
+                        <p>
+                            <md-icon md-svg-icon="tap" class="svg-icon"></md-icon>
+                            {{ crop.irrigationSuggest }}<abbr title="litros">litros</abbr>
+                        </p>
+                        <p id="bot_riego">
+                          Recomendación de riego
+                        </p>
+                    </div>
+                    <div class="col-50 dch">
+                        <p class="crop-type">
+                            {{crop.cropType}}
+                        </p>
+                        <p class="f_siembra">
+                            </br><i class="fa fa-calendar"></i>
+                            {{ crop.date | date:'dd/MM/yyyy' }}
+                        </p>
+                    </div>
+                    <img class="png-icon circle" ng-src="./img/tipo_riego/{{crop.irrigationSystemImg}}">
+                </div>
+            </div><!--end location item section-->
+        </div><!--end list section-->
+    </ion-content><!--end cube feed section-->
+
+    <!--button section-->
+    <div class="footer-fab-bar">
+        <a class="md-button md-accent md-fab fab-footer" aria-label="Add land" href="" ng-click="showAddland()">
+            <i class="ion ion-plus"></i>
+        </a>
+    </div><!--end button section-->
+
+    <!--loading progress-->
+    <div id="crop-list-loading-progress" class="loading-progress fade-in">
+        <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
+        <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
+    </div><!--end loading progress-->
+
+</ion-view>
