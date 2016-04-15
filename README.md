@@ -1,5 +1,5 @@
 # OSIRIS
-OSIRIS mobile app will help you to optimise the use of water.
+[OSIRIS mobile app](http://vexiza.com/?page_id=6366) will help you to optimise the use of water.
 
 ## Google Play Store ##
 You can download the deployed app [by clicking here](https://play.google.com/store/apps/details?id=com.vexiza.mobile.osiris).
